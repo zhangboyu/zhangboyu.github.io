@@ -3,8 +3,8 @@
 2. High-level summary of the procedure
 3. HDR radiance image reconstruction (Debevec's algorithm)
 4. Tone Mapping algorithms
-  1. Reinhard's algorithm
-  2. Durand's algorithm
+   1. Reinhard's algorithm
+   2. Durand's algorithm
 5. Results
 6. Conclusion and future work
 
