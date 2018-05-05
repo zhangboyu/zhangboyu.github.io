@@ -10,6 +10,10 @@
 
 
 ### Problem statement and motivation
+
+
+
+
 ### High-level summary of the procedure
 ### HDR radiance image reconstruction (Debevec's algorithm)
 ### Tone Mapping algorithms
