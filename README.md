@@ -1,4 +1,12 @@
-## Welcome to GitHub Pages
+## Table of Content
+1. Problem statement and motivation
+2. High-level summary of the procedure
+3. HDR radiance image reconstruction (Debevec's algorithm)
+4. Tone Mapping algorithms
+  1. Reinhard's algorithm
+  2. Durand's algorithm
+5. Results
+6. Conclusion and future work
 
 You can use the [editor on GitHub](https://github.com/zhangboyu/zhangboyu.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
