@@ -70,6 +70,7 @@ In order to solve ![](equations/ei.gif) for every scene point, we need to figure
 <p align="center">
   <img src="equations/eq5.gif" />
 </p>
+
 Where `N` is the number of pixels used in the linear equation system and `P` is the number of images available. The first term in the objective function ensures the solution satisfies the aforementioned equations, and the second term ensures the estimated function `g` is smooth. Minimizing the objective function ![](equations/O.gif) is a straightforward linear least square problem and can be easily solved in Matlab. After solving function `g`, the radiance values of each scene point can be calculated by taking the average radiance value among the `P` images, which is shown as following:
 <p align="center">
   <img src="equations/eq6.gif" />
@@ -84,7 +85,8 @@ However, not all pixels are equally good in terms of solving the linear equation
 
 R Channel                     |G Channel                        |B Channel
 :----------------------------:|:-------------------------------:|:------------------------------:
-<img src="equations/memorial_response_curve_R.pdf" width="180" height="215" />|<img src="equations/memorial_response_curve_G.pdf" width="180" height="215" />|<img src="equations/memorial_response_curve_B.pdf" width="180" height="215" />|
+<img src="equations/memorial_response_curve_R.pdf" width="180" height="215" />|<img src="equations/memorial_response_curve_G.pdf" width="180" height="215" />|<img src="equations/memorial_response_curve_B.pdf" width="180" height="215" />
+<img src="equations/memorial_radiance_map_R.pdf" width="180" height="215" />|<img src="equations/memorial_radiance_map_G.pdf" width="180" height="215" />|<img src="equations/memorial_radiance_map_B.pdf" width="180" height="215" />
 
 ### Tone Mapping algorithms
 #### Reinhard's algorithm
