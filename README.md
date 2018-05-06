@@ -36,6 +36,9 @@ Due to this huge discrepancy between the dynamic range of real world and the dyn
 When such images are used as input of various image-related algorithms, the results may not be satisfactory due to the lack of details in the image. For example, many image-based modeling and rendering systems make the assumption that all the images are taken with the same exposure settings and film response functions, which is almost impossible for any large-scale environment. Moreover, most image processing operations, such as blurring, edge detection, color correction, and image correspondence, expect pixel values to be proportional to the scene radiance. These operations will produce incorrect results for conventional images due to saturated pixels. Furthermore, generating good-looking images gains increasingly more importance with the prevalence of smart phone. Thus, the goal of this project is to explore how to bring back the details in both dark and bright regions and then generate good-looking images.
 
 ### High-level summary of the procedure
+
+At high level, the procedure of generating detailed and good-looking images consists of two stages. In the first stage, we want to 
+
 ### HDR radiance image reconstruction (Debevec's algorithm)
 ### Tone Mapping algorithms
 #### Reinhard's algorithm
