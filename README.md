@@ -81,7 +81,7 @@ One natural question to ask is that how many pixels are needed to solve the equa
   <img src="equations/eq7.gif" />
 </p>
 
-However, not all pixels are equally good in terms of solving the linear equation system and randomly sampled pixels may not generate satisfactory result. For example, if the pixel value is either 0 or 255 across all the images, it does not provide any useful information in solving the function `g`. In order to pick "good" pixels, I sliced the images into many tiles, then for each tile, I picked the pixel that has highest standard deviation among images. This simple heuristic is indeed able to generate very good results. Since the imaging system may have different response function `g` for different color, the three channels of the image are treated separately and the results are shown in the table. 
+However, not all pixels are equally good in terms of solving the linear equation system and randomly sampled pixels may not generate satisfactory result. For example, if the pixel value is either 0 or 255 across all the images, it does not provide any useful information in solving the function `g`. In order to pick "good" pixels, I sliced the images into many tiles, then for each tile, I picked the pixel that has highest standard deviation among images. This simple heuristic is indeed able to generate very good results. Since the imaging system may have different response function `g` for different color, the three channels of the image are treated separately and the results are shown in the table. The red curves in the response curve figures are function `g` for different color channels, the blue dots correspond to the sampled pixels, and the values in the radiance map figures are in log space.
 
 R Channel                     |G Channel                        |B Channel
 :----------------------------:|:-------------------------------:|:------------------------------:
@@ -89,6 +89,9 @@ R Channel                     |G Channel                        |B Channel
 <img src="equations/memorial_radiance_map_R.jpg" width="210" height="280" />|<img src="equations/memorial_radiance_map_G.jpg" width="210" height="280" />|<img src="equations/memorial_radiance_map_B.jpg" width="210" height="280" />
 
 ### Tone Mapping algorithms
+
+
+
 #### Reinhard's algorithm
 #### Durand's algorithm
 ### Results
