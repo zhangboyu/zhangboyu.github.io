@@ -74,7 +74,10 @@ Where `N` is the number of pixels used in the linear equation system and `P` is 
 <p align="center">
   <img src="equations/eq6.gif" />
 </p>
-
+One natural question to ask is that how many pixels are needed to solve the equation system. Notice that in the above system, the unknowns are the value of function `g` on all possible `Z` values and the radiance values `E` of the scene points that corresponds to the picked pixels. Thus, as long as the following equation is met, the solution can be found.
+<p align="center">
+  <img src="equations/eq7.gif" />
+</p>
 
 ### Tone Mapping algorithms
 #### Reinhard's algorithm
