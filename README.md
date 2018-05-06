@@ -45,11 +45,10 @@ At high level, the procedure of generating good-looking images with clear detail
 
 The goal of this stage is to estimate the radiance value at every scene point from a set of images that are taken from the same vatange point with different known exposure duration. Here, I used Debevec's algorithm\[1\] to achieve this purpose. 
 
-Assuming we have a set of images taken from the same vantage point with the same aperture but different exposure duration. The radiance value of each scene point is ![](equations/ei.png), where `i` is spatial index. The exposure duration is ![](equations/deltat.png), where `j` is time index. The pixel value corresponding to spatial index `i` and time index `j` is ![](equations/zij.png). As shown in the figure below, for any imaging system, photons pass through the shutter and accumulated at image sensor, then the raw data from the sensor passes through the camera response function to get the final pixel value. The camera response function `f` is a non-linear function that is different for each camera and proprietary to each manufactory. Thus, the pixel value ![](equations/zij.png) can be expressed as a non-linear function `f` applied to the product of ![](equations/ei.png) and ![](equations/deltat.png), which is also shown below.
+Assuming we have a set of images taken from the same vantage point with the same aperture but different exposure duration. The radiance value of each scene point is ![](equations/ei.gif), where `i` is spatial index. The exposure duration is ![](equations/deltat.gif), where `j` is time index. The pixel value corresponding to spatial index `i` and time index `j` is ![](equations/zij.gif). As shown in the figure below, for any imaging system, photons pass through the shutter and accumulated at image sensor, then the raw data from the sensor passes through the camera response function to get the final pixel value. The camera response function `f` is a non-linear function that is different for each camera and proprietary to each manufactory. Thus, the pixel value ![](equations/zij.gif) can be expressed as a non-linear function `f` applied to the product of ![](equations/ei.gif) and ![](equations/deltat.gif), which is also shown below.
 
 <p align="center">
-  <img src="equations/wholeprocess.png" width="280" height="315" />
-  <img src="equations/.png" width="280" height="315" />
+  <img src="equations/wholeprocess.png" width="180" height="215" />
 </p>
 
 
