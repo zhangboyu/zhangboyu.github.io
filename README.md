@@ -66,11 +66,14 @@ After taking inverse of `f` and logarithm on both sides, then simplifying the no
   <img src="equations/eq4.gif" />
 </p>
 
-In order to solve ![](equations/ei.gif) for every scene point, we need to figure out the function `g` for all possible `Z` values that best satisfies the above equation in a least-square error sense. Since every scene point satisfies above equation and `Z` is an integer from 0 to 255, we can turn the problem of solving funtion `g` to an optimization problem where the objective function is shown as follows:
+In order to solve ![](equations/ei.gif) for every scene point, we need to figure out the function `g` for all possible `Z` values that best satisfies the above equation in a least-square error manner. Since every scene point satisfies above equation and `Z` is an integer from 0 to 255, we can turn the problem of solving funtion `g` to an optimization problem where the objective function is shown as follows:
 <p align="center">
   <img src="equations/eq5.gif" />
 </p>
-The first term in the objective function ensures the solution satisfies the aforementioned equations, and the second term ensures the estimated function `g` is smooth. Minimizing the objective function ![](equations/O.gif) is a straightforward linear least square problem and can be easily solved in Matlab.
+Where `N` is the number of pixels used in the linear equation system and `P` is the number of images available. The first term in the objective function ensures the solution satisfies the aforementioned equations, and the second term ensures the estimated function `g` is smooth. Minimizing the objective function ![](equations/O.gif) is a straightforward linear least square problem and can be easily solved in Matlab. After solving function `g`, the radiance values of each scene point can be calculated by taking the average radiance value among the `P` images, which is shown as following:
+<p align="center">
+  <img src="equations/eq6.gif" />
+</p>
 
 
 ### Tone Mapping algorithms
