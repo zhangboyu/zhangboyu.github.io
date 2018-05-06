@@ -1,10 +1,10 @@
 ## Table of Content
 1. [Problem statement and motivation](#problem-statement-and-motivation)
 2. [High-level summary of the procedure](#high-level-summary-of-the-procedure)
-3. [HDR radiance image reconstruction (Debevec's algorithm)](#hdr-radiance-image-reconstruction-(debevec's-algorithm))
+3. [HDR radiance image reconstruction (Debevec's algorithm)](#hdr-radiance-image-reconstruction-(debevec\'s-algorithm))
 4. [Tone mapping algorithms](#tone-mapping-algorithms)
-   1. [Reinhard's algorithm](#reinhard's-algorithm)
-   2. [Durand's algorithm](#durand's-algorithm)
+   1. [Reinhard's algorithm](#reinhard\'s-algorithm)
+   2. [Durand's algorithm](#durand\'s-algorithm)
 5. [Results](#results)
 6. [Conclusion and future work](#conclusion-and-future-work)
 7. [Reference](#reference)
