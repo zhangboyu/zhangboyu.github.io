@@ -30,7 +30,7 @@ Digital Video   | 45:1                                             |33.1
 Thus, the details in both very dark and very bright regions of the scene are lost due to this huge discrepancy between the dynamic range of real world and the dynamic ranges of capturing and displaying devices. For example, the details of the color of the windows and the structures in the left dark regions are not clear in the following image.
 
 <p align="center">
-  <img src="equations/memorial0065.png" />
+  <img src="equations/memorial0065.png" width="250" height="380" />
 </p>
 
 
