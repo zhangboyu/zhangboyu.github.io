@@ -12,7 +12,7 @@
 
 ### Problem statement and motivation
 The range of intensity of light in real world is approximately **10** orders of magnitudes (e.g., star-lit scene vs. sun-lit snow) and it can be over **4** orders of magnitudes in one scene (e.g., shadows vs. highlights). However, the range of intensity of light that can be captured by normal cameras and can be displayed by normal monitors is only about **2** orders of magnitudes. The ability of capturing and displaying both very dark and very bright at the same time is characterized by the **dynamic range** of the device. The dynamic range is defined by the following equation:
-<img align="center" src="https://github.com/zhangboyu/zhangboyu.github.io/blob/master/equations/CodeCogsEqn.gif">
+<img align="center" src="https://github.com/zhangboyu/zhangboyu.github.io/blob/master/equations/CodeCogsEqn.gif" />
 
 
 
