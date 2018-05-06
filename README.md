@@ -1,5 +1,5 @@
 ## Table of Content
-1. [Problem statement and motivation](#Problem-statement-and-motivation)
+1. [Problem statement and motivatio](#Problem-statement-and-motivation)
 2. [High-level summary of the procedure](#High-level-summary-of-the-procedure)
 3. [HDR radiance image reconstruction (Debevec's algorithm)](#HDR-radiance-image-reconstruction-(Debevec's-algorithm))
 4. [Tone Mapping algorithms](#Tone-Mapping-algorithms)
