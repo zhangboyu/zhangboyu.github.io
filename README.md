@@ -16,6 +16,8 @@ The range of intensity of light in real world is approximately **10** orders of 
 
 ![](https://github.com/zhangboyu/zhangboyu.github.io/blob/master/equations/CodeCogsEqn.gif)
 
+![](http://latex.codecogs.com/gif.latex?Dynamic%5C%20Range%3D20%5Ctimes%20log%28%5Cfrac%7BB_%7Bmax%7D%7D%7BB_%7Bmin%7D%7D%29)
+
 
 
 ### High-level summary of the procedure
