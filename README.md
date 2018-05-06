@@ -74,10 +74,17 @@ Where `N` is the number of pixels used in the linear equation system and `P` is 
 <p align="center">
   <img src="equations/eq6.gif" />
 </p>
-One natural question to ask is that how many pixels are needed to solve the equation system. Notice that in the above system, the unknowns are the value of function `g` on all possible `Z` values and the radiance values `E` of the scene points that corresponds to the picked pixels. Thus, as long as the following equation is met, the solution can be found.
+
+One natural question to ask is that how many pixels are needed to solve the equation system. Notice that in the above system, the unknowns are the value of function `g` on all possible `Z` values and the radiance values `E` of the scene points that corresponds to the picked pixels. Thus, as long as the following equation is met, the solution can be found. For example, when `P=11`, `N>50` is more than enough.
 <p align="center">
   <img src="equations/eq7.gif" />
 </p>
+
+However, not all pixels are equally good in terms of solving the linear equation system and randomly sampled pixels may not generate satisfactory result. For example, if the pixel value is either 0 or 255 across all the images, it does not provide any useful information in solving the function `g`. In order to pick "good" pixels, I sliced the images into many tiles, then for each tile, I picked the pixel that has highest standard deviation among images. This simple heuristic is indeed able to generate very good results. Since the imaging system may have different response function `g` for different color, the three channels of the image are treated separately and the results are shown in the table. 
+
+R Channel                     |G Channel                        |B Channel
+:----------------------------:|:-------------------------------:|:------------------------------:
+<img src="equations/memorial_response_curve_R.pdf" width="180" height="215" />|<img src="equations/memorial_response_curve_G.pdf" width="180" height="215" />|<img src="equations/memorial_response_curve_B.pdf" width="180" height="215" />|
 
 ### Tone Mapping algorithms
 #### Reinhard's algorithm
