@@ -7,10 +7,11 @@
    2. [Durand's algorithm](#Durand's-algorithm)
 5. [Results](#Results)
 6. [Conclusion and future work](#Conclusion-and-future-work)
+7. [Reference](#Reference)
 
 
 ### Problem statement and motivation
-
+The range of intensity of light in real world is approximately **10** orders of magnitudes (e.g., star-lit scene vs. sun-lit snow) and it can be over **4** orders of magnitudes in one scene (e.g., shadows vs. highlights). 
 
 
 
@@ -21,7 +22,7 @@
 #### Durand's algorithm
 ### Results
 ### Conclusion and future work
-
+### Reference
 
 
 
