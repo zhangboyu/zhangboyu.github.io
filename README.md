@@ -43,7 +43,7 @@ At high level, the procedure of generating good-looking images with clear detail
 
 ### HDR radiance image reconstruction (Debevec's algorithm)
 
-
+The goal of this stage is to estimate the radiance value at every scene point from a set of images that are taken from the same scene vatange point with different known exposure duration. 
 
 ### Tone Mapping algorithms
 #### Reinhard's algorithm
