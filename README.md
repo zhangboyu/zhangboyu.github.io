@@ -35,10 +35,10 @@ Thus, the details in both very dark and very bright regions of the scene are los
 
 
 ### High-level summary of the procedure
-### HDR radiance image reconstruction (Debevec's algorithm)
+### HDR radiance image reconstruction (Debevec\'s algorithm)
 ### Tone Mapping algorithms
-#### Reinhard's algorithm
-#### Durand's algorithm
+#### Reinhard\'s algorithm
+#### Durand\'s algorithm
 ### Results
 ### Conclusion and future work
 ### Reference
