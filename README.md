@@ -14,15 +14,10 @@
 The range of intensity of light in real world is approximately **10** orders of magnitudes (e.g., star-lit scene vs. sun-lit snow) and it can be over **4** orders of magnitudes in one scene (e.g., shadows vs. highlights). However, the range of intensity of light that can be captured by normal cameras and can be displayed by normal monitors is only about **2** orders of magnitudes. The ability of capturing and displaying both very dark and very bright at the same time is characterized by the **dynamic range** of the device. The dynamic range is defined by the following equation:
 
 <p align="center">
-  <img src="equations/CodeCogsEqn.gif" />
+  <img src="equations/dynamic_range.gif" />
 </p>
 
-<img align="center" src="equations/CodeCogsEqn.gif" >
-
-![](equations/CodeCogsEqn.gif)
-
-![](http://latex.codecogs.com/gif.latex?Dynamic%5C%20Range%3D20%5Ctimes%20log%28%5Cfrac%7BB_%7Bmax%7D%7D%7BB_%7Bmin%7D%7D%29)
-
+Where ![](equations/bmax.gif) is the maximum possbile photon energy (full potential well) and ![](equations/bmin.gif) is the minimum detectable photon energy (in the presence of noise). 
 
 
 ### High-level summary of the procedure
