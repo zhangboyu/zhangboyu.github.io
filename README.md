@@ -51,6 +51,20 @@ Assuming we have a set of images taken from the same vantage point with the same
   <img src="equations/wholeprocess.png" width="180" height="215" />
 </p>
 
+<p align="center">
+  <img src="equations/eq1.gif" />
+</p>
+
+After taking inverse of `f` and logarithm on both sides, then simplifying the notation, we get:
+<p align="center">
+  <img src="equations/eq2.gif" />
+</p>
+<p align="center">
+  <img src="equations/eq3.gif" />
+</p>
+<p align="center">
+  <img src="equations/eq4.gif" />
+</p>
 
 
 ### Tone Mapping algorithms
