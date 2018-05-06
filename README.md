@@ -20,7 +20,7 @@ The range of intensity of light in real world is approximately **10** orders of 
 Where ![](equations/bmax.gif) is the maximum possbile photon energy (full potential well) and ![](equations/bmin.gif) is the minimum detectable photon energy (in the presence of noise). The larger the dynamic range is, the higher the ability of distinguishing different brightness. The following table shows the dynamic ranges of several devices.
 
 Device          |  ![](equations/bmax.gif):![](equations/bmin.gif) | Dynamic Range
-:--------------:|:------------------------------------------------:|:-------------:
+:--------------:|--------------------------------------------------|:-------------:
 Human Eye       | 1,000,000:1                                      |120
 HDR Display     | 200,000:1                                        |106
 Digital Camera  | 4096:1                                           |72.2
