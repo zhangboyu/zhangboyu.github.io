@@ -85,8 +85,8 @@ However, not all pixels are equally good in terms of solving the linear equation
 
 R Channel                     |G Channel                        |B Channel
 :----------------------------:|:-------------------------------:|:------------------------------:
-<img src="equations/memorial_response_curve_R.pdf" width="180" height="215" />|<img src="equations/memorial_response_curve_G.pdf" width="180" height="215" />|<img src="equations/memorial_response_curve_B.pdf" width="180" height="215" />
-<img src="equations/memorial_radiance_map_R.pdf" width="180" height="215" />|<img src="equations/memorial_radiance_map_G.pdf" width="180" height="215" />|<img src="equations/memorial_radiance_map_B.pdf" width="180" height="215" />
+<img src="equations/memorial_response_curve_R.jpg" width="180" height="215" />|<img src="equations/memorial_response_curve_G.jpg" width="180" height="215" />|<img src="equations/memorial_response_curve_B.jpg" width="180" height="215" />
+<img src="equations/memorial_radiance_map_R.jpg" width="180" height="215" />|<img src="equations/memorial_radiance_map_G.jpg" width="180" height="215" />|<img src="equations/memorial_radiance_map_B.jpg" width="180" height="215" />
 
 ### Tone Mapping algorithms
 #### Reinhard's algorithm
