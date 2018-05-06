@@ -27,12 +27,13 @@ Digital Camera  | 4096:1                                           |72.2
 Film Camera     | 2948:1                                           |66.2
 Digital Video   | 45:1                                             |33.1
 
-Thus, the details in both very dark and very bright regions of the scene are lost due to this huge discrepancy between the dynamic range of real world and the dynamic ranges of capturing and displaying devices. For example, the details of the color of the windows and the structures in the left dark regions are not clear in the following image.
+Due to this huge discrepancy between the dynamic range of real world and the dynamic ranges of capturing and displaying devices, the details in both very dark and very bright regions of the scene are lost. For example, the details of the color of the windows and the structures in the left dark regions are not clear in the following image.
 
 <p align="center">
   <img src="equations/memorial0065.png" width="250" height="380" />
 </p>
 
+When such images are used as input of various image-related algorithms, the results may not be satisfactory due to the lack of details in the image. For example, many image-based modeling and rendering systems make the assumption that all the images are taken with the same exposure settings and film response functions, which is almost impossible for any large-scale environment. Moreover, most image processing operations, such as blurring, edge detection, color correction, and image correspondence, expect pixel values to be proportional to the scene radiance. These operations will produce incorrect results for conventional images due to saturated pixels. Furthermore, generating good-looking images gains increasingly more importance with the prevalence of smart phone. Thus, the goal of this project is to explore how to bring back the details in both dark and bright regions and then generate good-looking images.
 
 ### High-level summary of the procedure
 ### HDR radiance image reconstruction (Debevec's algorithm)
