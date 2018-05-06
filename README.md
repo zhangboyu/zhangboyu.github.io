@@ -38,7 +38,6 @@ When such images are used as input of various image-related algorithms, the resu
 ### High-level summary of the procedure
 
 At high level, the procedure of generating good-looking images with clear details consists of two stages. 
-
 1. In the first stage, we want to estimate the radiance value of each scene point so that we know the real light intensity of every scene point. 
 2. In the second stage, we want to map the radiance image obtained from the first stage to display luminance values so that the details in dark and bright regions can be shown clearly with the display medium. 
 
