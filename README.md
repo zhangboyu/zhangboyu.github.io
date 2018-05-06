@@ -19,6 +19,7 @@ The range of intensity of light in real world is approximately **10** orders of 
 
 Where ![](equations/bmax.gif) is the maximum possbile photon energy (full potential well) and ![](equations/bmin.gif) is the minimum detectable photon energy (in the presence of noise). The larger the dynamic range is, the higher the ability of distinguishing different brightness. The following table shows the dynamic ranges of several devices.
 
+<p align="center">
 Device          |  ![](equations/bmax.gif):![](equations/bmin.gif) | Dynamic Range
 :--------------:|-------------------------------------------------:|:-------------:
 Human Eye       | 1,000,000:1                                      |120
@@ -26,6 +27,7 @@ HDR Display     | 200,000:1                                        |106
 Digital Camera  | 4096:1                                           |72.2
 Film Camera     | 2948:1                                           |66.2
 Digital Video   | 45:1                                             |33.1
+</p>
 
 Due to this huge discrepancy between the dynamic range of real world and the dynamic ranges of capturing and displaying devices, the details in both very dark and very bright regions of the scene are lost. For example, the details of the color of the windows and the structures in the left dark regions are not clear in the following image.
 
@@ -83,10 +85,12 @@ One natural question to ask is that how many pixels are needed to solve the equa
 
 However, not all pixels are equally good in terms of solving the linear equation system and randomly sampled pixels may not generate satisfactory result. For example, if the pixel value is either 0 or 255 across all the images, it does not provide any useful information in solving the function `g`. In order to pick "good" pixels, I sliced the images into many tiles, then for each tile, I picked the pixel that has highest standard deviation among images. This simple heuristic is indeed able to generate very good results. Since the imaging system may have different response function `g` for different color, the three channels of the image are treated separately and the results are shown in the table. The red curves in the response curve figures are function `g` for different color channels, the blue dots correspond to the sampled pixels, and the values in the radiance map figures are in log space.
 
+<p align="center">
 R Channel                     |G Channel                        |B Channel
 :----------------------------:|:-------------------------------:|:------------------------------:
 <img src="equations/memorial_response_curve_R.jpg" width="210" height="240" />|<img src="equations/memorial_response_curve_G.jpg" width="210" height="240" />|<img src="equations/memorial_response_curve_B.jpg" width="210" height="240" />
 <img src="equations/memorial_radiance_map_R.jpg" width="210" height="280" />|<img src="equations/memorial_radiance_map_G.jpg" width="210" height="280" />|<img src="equations/memorial_radiance_map_B.jpg" width="210" height="280" />
+</p>
 
 ### Tone Mapping algorithms
 
