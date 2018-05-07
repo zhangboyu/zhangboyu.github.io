@@ -30,7 +30,7 @@ Digital Video   | 45:1                                             |33.1
 Due to this huge discrepancy between the dynamic range of real world and the dynamic ranges of capturing and displaying devices, the details in both very dark and very bright regions of the scene are lost. For example, the details of the color of the windows and the structures in the left dark regions are not clear in the following image.
 
 <p align="center">
-  <img src="equations/memorial0065.png" width="200" height="340" />
+  <img src="equations/memorial0065.png" width="200" height="320" />
 </p>
 
 When such images are used as input of various image-related algorithms, the results may not be satisfactory due to the lack of details in the image. For example, many image-based modeling and rendering systems make the assumption that all the images are taken with the same exposure settings and film response functions, which is almost impossible for any large-scale environment. Moreover, most image processing operations, such as blurring, edge detection, color correction, and image correspondence, expect pixel values to be proportional to the scene radiance. These operations will produce incorrect results for conventional images due to saturated pixels. Furthermore, generating good-looking images gains increasingly more importance with the prevalence of smart phone. Thus, the goal of this project is to explore how to bring back the details in both dark and bright regions and then generate good-looking images.
@@ -83,7 +83,7 @@ One natural question to ask is that how many pixels are needed to solve the equa
 
 However, not all pixels are equally good in terms of solving the linear equation system and randomly sampled pixels may not generate satisfactory result. For example, if the pixel value is either 0 or 255 across all the images, it does not provide any useful information in solving the function `g`. In order to pick "good" pixels, I sliced the images into many tiles, then for each tile, I picked the pixel that has highest standard deviation among images. 
 <p align="center">
-  <img src="equations/stack.png" width="200" height="340" />
+  <img src="equations/stack.png" width="200" height="320" />
 </p>
 
 This simple heuristic is indeed able to generate very good results. Since the imaging system may have different response function `g` for different color, the three channels of the image are treated separately and the results are shown in the table. The red curves in the response curve figures are function `g` for different color channels, the blue dots correspond to the sampled pixels, and the values in the radiance map figures are in log space.
@@ -120,7 +120,7 @@ The results of this algorithm is shown below. Although not obvious, more details
 
 Original Image                             |Tone Mapped Image
 :-----------------------------------------:|:-----------------------------:
-<img src="equations/memorial0065.png" width="250" height="380" /> | <img src="equations/memorial_tone_mapped_reinhard.png" width="250" height="380" />
+<img src="equations/memorial0065.png" width="200" height="320" /> | <img src="equations/memorial_tone_mapped_reinhard.png" width="200" height="320" />
 
 #### Durand's algorithm
 ### Results
