@@ -83,7 +83,7 @@ One natural question to ask is that how many pixels are needed to solve the equa
 
 However, not all pixels are equally good in terms of solving the linear equation system and randomly sampled pixels may not generate satisfactory result. For example, if the pixel value is either 0 or 255 across all the images, it does not provide any useful information in solving the function `g`. In order to pick "good" pixels, I sliced the images into many tiles, then for each tile, I picked the pixel that has highest standard deviation among images. 
 <p align="center">
-  <img src="equations/stack.png" width="300" height="450" />
+  <img src="equations/stack.png" width="250" height="380" />
 </p>
 
 This simple heuristic is indeed able to generate very good results. Since the imaging system may have different response function `g` for different color, the three channels of the image are treated separately and the results are shown in the table. The red curves in the response curve figures are function `g` for different color channels, the blue dots correspond to the sampled pixels, and the values in the radiance map figures are in log space.
@@ -117,9 +117,10 @@ This algorithm is inspired by the Zone System that was developed in the 1940s. T
 </p>
 
 The results of this algorithm is shown below. Although not obvious, more details are indeed show up in the new image if we zoom in.
+
 Original Image                             |Tone Mapped Image
 :-----------------------------------------:|:-----------------------------:
-<img src="equations/memorial0065.png" width="250" height="380" />|<img src="equations/memorial_tone_mapped_reinhard.png" width="250" height="380" />
+<img src="equations/memorial0065.png" width="250" height="380" /> | <img src="equations/memorial_tone_mapped_reinhard.png" width="250" height="380" />
 
 #### Durand's algorithm
 ### Results
