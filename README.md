@@ -101,18 +101,9 @@ The problem of tone mapping considers how to map the high dynamic range radiance
 
 This algorithm is inspired by the Zone System that was developed in the 1940s. The main idea is to map the middle brightness of the scene to the middle brightness of the display medium, so that the overall brightness of the entire scene is well captured. The main 3 steps of the algorithm is illustrated below:
 
-1. Calculate the radiance value that corresponds to the average brightness of human perception of the scene. Since the brightness perception of human is logarithmic to scene radiance, we need to calculate the average of the logarithm of the scene radiance first and then map it back to radiance value. Suppose ![](equations/L.gif) is the radiance value of scene location `(x,y)` and the total number of pixels in the scene is `N`, then the average radiance is given by:
-<p align="center">
-  <img src="equations/eq11.gif" />
-</p>
-2. Scale the radiance values so that the average radiance value calculated from the first step is mapped to `a`, which is the middle brightness (e.g., middle-gray) of the display medium. `a` is usually set to 0.18 but can be adjusted to alter the overall brightness of the image. 
-<p align="center">
-  <img src="equations/eq8.gif" />
-</p>
-3. After the second step, the very bright pixels may still been mapped to values that are larger than 1, which exceeds the luminance limits of the display medium (`0~1`). Since modern photography favors to compress mainly the high luminances, we need to apply a non-linear transformation to compress high luminances to values that are smaller than 1 and leave the low luminances almost intact. Such a non-linear transformation is shown below, where the ![](equations/eq10.gif) is set to the maximum luminance in the scene by default. 
-<p align="center">
-  <img src="equations/eq9.gif" />
-</p>
+1. Calculate the radiance value that corresponds to the average brightness of human perception of the scene. Since the brightness perception of human is logarithmic to scene radiance, we need to calculate the average of the logarithm of the scene radiance first and then map it back to radiance value. Suppose ![](equations/L.gif) is the radiance value of scene location `(x,y)` and the total number of pixels in the scene is `N`, then the average radiance is given by:<p align="center">  <img src="equations/eq11.gif" /> </p>
+2. Scale the radiance values so that the average radiance value calculated from the first step is mapped to `a`, which is the middle brightness (e.g., middle-gray) of the display medium. `a` is usually set to 0.18 but can be adjusted to alter the overall brightness of the image. <p align="center">  <img src="equations/eq8.gif" /> </p>
+3. After the second step, the very bright pixels may still been mapped to values that are larger than 1, which exceeds the luminance limits of the display medium (`0~1`). Since modern photography favors to compress mainly the high luminances, we need to apply a non-linear transformation to compress high luminances to values that are smaller than 1 and leave the low luminances almost intact. Such a non-linear transformation is shown below, where the ![](equations/eq10.gif) is set to the maximum luminance in the scene by default. <p align="center">  <img src="equations/eq9.gif" /> </p>
 
 The results of this algorithm is shown below. Although not obvious, more details are indeed show up in the new image if we zoom in.
 
@@ -124,10 +115,7 @@ Original Image                             |Tone Mapped Image
 
 The main idea of this algorithm is to decompose the radiance image into two layers: a base layer, which encoding large-scale variations, and a detail layer. Only the base layer's contrast is reduced, thereby details are preserved in the tone mapped iamge. This algorithm can also be illustrated in 3 steps:
 
-1. The base layer is obtained by applying an edge-preserving filter, namely, bilateral filter on the logarithm of the radiance image. The reason of using the logarithm of the radiance image is explained in the first step of the Reinhard's algorithm. Bilateral filter is a non-linear filter, where the weight of each pixel is computed using a Gaussian in the spatial domain multiplied by an influence function in the intensity domain that decreases the weight of pixels with large intensity differences[3]. The result of applying this filter is that the image is blurred but the edges are preserved. Mathematically, this step can be expressed as:
-<p align="center">
-  <img src="equations/eq9.gif" />
-</p>
+1. The base layer is obtained by applying an edge-preserving filter, namely, bilateral filter on the logarithm of the radiance image. The reason of using the logarithm of the radiance image is explained in the first step of the Reinhard's algorithm. Bilateral filter is a non-linear filter, where the weight of each pixel is computed using a Gaussian in the spatial domain multiplied by an influence function in the intensity domain that decreases the weight of pixels with large intensity differences[3]. The result of applying this filter is that the image is blurred but the edges are preserved. Mathematically, this step can be expressed as:<p align="center">  <img src="equations/eq9.gif" /> </p>
 
 
 ### Results
