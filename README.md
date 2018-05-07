@@ -133,11 +133,18 @@ Original Image      |Base Layer            |Detail Layer           |Tone Mapped 
 
 ### Results
 
-This section contains the results of both tone mapping algorithms on many images. The images are taken either by myself or from [Guan's website](https://github.com/drakeguan/vfx11spring_project1/tree/master/image/original).
+This section contains the results of both tone mapping algorithms on many images. The images are taken either by myself or from [Guan's website](https://github.com/drakeguan/vfx11spring_project1/tree/master/image/original). The regions in red circles in the original images have the most obvious improvement in terms of visible details.
 
 Original Image      |Reinhard's Algorithm       |Durand's Algorithm
 :------------------:|:-------------------------:|:---------------------:
 <img src="equations/corridor.jpg" /> | <img src="equations/corridor_tone_mapped_reinhard.png" /> | <img src="equations/corridor_tone_mapped_durand.png" />
+<img src="equations/desk.jpg" /> | <img src="equations/desk_tone_mapped_reinhard.png" /> | <img src="equations/desk_tone_mapped_durand.png" />
+<img src="equations/desk01.jpg" /> | <img src="equations/desk01_tone_mapped_reinhard.png" /> | <img src="equations/desk01_tone_mapped_durand.png" />
+<img src="equations/desk02.jpg" /> | <img src="equations/desk02_tone_mapped_reinhard.png" /> | <img src="equations/desk02_tone_mapped_durand.png" />
+<img src="equations/digimax.jpg" /> | <img src="equations/digimax_tone_mapped_reinhard.png" /> | <img src="equations/digimax_tone_mapped_durand.png" />
+<img src="equations/scene.jpg" /> | <img src="equations/scene_tone_mapped_reinhard.png" /> | <img src="equations/scene_tone_mapped_durand.png" />
+<img src="equations/server.jpg" /> | <img src="equations/server_tone_mapped_reinhard.png" /> | <img src="equations/server_tone_mapped_durand.png" />
+<img src="equations/station.jpg" /> | <img src="equations/station_tone_mapped_reinhard.png" /> | <img src="equations/station_tone_mapped_durand.png" />
 
 ### Conclusion and future work
 ### Reference
