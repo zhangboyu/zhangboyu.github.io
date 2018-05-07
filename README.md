@@ -83,7 +83,7 @@ One natural question to ask is that how many pixels are needed to solve the equa
 
 However, not all pixels are equally good in terms of solving the linear equation system and randomly sampled pixels may not generate satisfactory result. For example, if the pixel value is either 0 or 255 across all the images, it does not provide any useful information in solving the function `g`. In order to pick "good" pixels, I sliced the images into many tiles, then for each tile, I picked the pixel that has highest standard deviation among images. 
 <p align="center">
-  <img src="equations/stack.png" />
+  <img src="equations/stack.png" width="300" height="450" />
 </p>
 
 This simple heuristic is indeed able to generate very good results. Since the imaging system may have different response function `g` for different color, the three channels of the image are treated separately and the results are shown in the table. The red curves in the response curve figures are function `g` for different color channels, the blue dots correspond to the sampled pixels, and the values in the radiance map figures are in log space.
@@ -106,7 +106,20 @@ This algorithm is inspired by the Zone System that was developed in the 1940s. T
   <img src="equations/eq11.gif" />
 </p>
 
+2. Scale the radiance values so that the average radiance value calculated from the first step is mapped to `a`, which is the middle brightness (e.g., middle-gray) of the display medium. `a` is usually set to 0.18 but can be adjusted to alter the overall brightness of the image. 
+<p align="center">
+  <img src="equations/eq8.gif" />
+</p>
 
+3. After the second step, the very bright pixels may still been mapped to values that are larger than 1, which exceeds the luminance limits of the display medium (`0~1`). Since modern photography favors to compress mainly the high luminances, we need to apply a non-linear transformation to compress high luminances to values that are smaller than 1 and leave the low luminances almost intact. Such a non-linear transformation is shown below, where the ![](equations/eq10.gif) is set to the maximum luminance in the scene by default. 
+<p align="center">
+  <img src="equations/eq9.gif" />
+</p>
+
+The results of this algorithm is shown below. Although not obvious, more details are indeed show up in the new image if we zoom in.
+Original Image                             |Tone Mapped Image
+:-----------------------------------------:|:-----------------------------:
+<img src="equations/memorial0065.png" width="250" height="380" />|<img src="equations/memorial_tone_mapped_reinhard.png" width="250" height="380" />
 
 #### Durand's algorithm
 ### Results
