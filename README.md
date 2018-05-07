@@ -129,9 +129,14 @@ The results of various step of this algorithm are shown below. The effects of th
 
 Original Image      |Base Layer            |Detail Layer           |Tone Mapped Image
 :------------------:|:--------------------:|:---------------------:|:-------:
-<img src="equations/memorial0066.png" width="200" height="320" /> | <img src="equations/memorial_base.jpg" width="200" height="320" /> |<img src="equations/memorial_detail.jpg" width="200" height="320" /> |<img src="equations/memorial_tone_mapped_durand.png" width="200" height="320" />
+<img src="equations/memorial0066.png" width="200" height="320" /> | <img src="equations/memorial_base.jpg" width="200" height="320" /> | <img src="equations/memorial_detail.jpg" width="200" height="320" /> | <img src="equations/memorial_tone_mapped_durand.png" width="200" height="320" />
 
 ### Results
+
+This section contains the results of both tone mapping algorithms on many images. The images are taken either by myself or from [Guan's website](https://github.com/drakeguan/vfx11spring_project1/tree/master/image/original).
+
+
+
 ### Conclusion and future work
 ### Reference
 
