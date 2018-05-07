@@ -120,7 +120,16 @@ The main idea of this algorithm is to decompose the radiance image into two laye
 
 1. The base layer is obtained by applying an edge-preserving filter, namely, bilateral filter on the logarithm of the radiance image. The reason of using the logarithm of the radiance image is explained in the first step of the Reinhard's algorithm. Bilateral filter is a non-linear filter, where the weight of each pixel is computed using a Gaussian in the spatial domain multiplied by an influence function in the intensity domain that decreases the weight of pixels with large intensity differences[3]. The result of applying this filter is that the image is blurred but the edges are preserved. Mathematically, this step can be expressed as:
    <p align="center">  <img src="equations/eq12.gif" /> </p>
+2. The detail layer is extracted by subtracting the base layer from the logarithm of the radiance image. 
+   <p align="center">  <img src="equations/eq13.gif" /> </p>
+3. Base layer get shifted and contrast reduced first. Then the detail layer is added back to it. Finally, we take its exponential to be the fianl luminance value. The purpose of shift is to make sure that the component from the base layer after exponential is less than upper limit of the luminance value, which is 1.
+   <p align="center">  <img src="equations/eq14.gif" /> </p>
 
+The results of various step of this algorithm are shown below. The effects of this algorithm is very obvious. However, the color of the tone mapped image seems little unnatural. 
+
+Original Image      |Base Layer            |Detail Layer           |Tone Mapped Image
+:------------------:|:--------------------:|:---------------------:|:-------:
+<img src="equations/memorial0066.png" width="200" height="320" /> | <img src="equations/memorial_base.jpg" width="200" height="320" /> |<img src="equations/memorial_detail.jpg" width="200" height="320" /> |<img src="equations/memorial_tone_mapped_durand.png" width="200" height="320" />
 
 ### Results
 ### Conclusion and future work
