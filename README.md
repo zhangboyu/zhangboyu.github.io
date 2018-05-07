@@ -139,6 +139,12 @@ Original Image      |Reinhard's Algorithm       |Durand's Algorithm
 :------------------:|:-------------------------:|:---------------------:
 <img src="equations/corridor.jpg" /> | <img src="equations/corridor_tone_mapped_reinhard.png" /> | <img src="equations/corridor_tone_mapped_durand.png" />
 <img src="equations/desk.jpg" /> | <img src="equations/desk_tone_mapped_reinhard.png" /> | <img src="equations/desk_tone_mapped_durand.png" />
+<img src="equations/desk01.jpg" /> | <img src="equations/desktop01_tone_mapped_reinhard.png" /> | <img src="equations/desktop01_tone_mapped_durand.png" />
+<img src="equations/desk02.jpg" /> | <img src="equations/desktop02_tone_mapped_reinhard.png" /> | <img src="equations/desktop02_tone_mapped_durand.png" />
+<img src="equations/digimax.jpg" /> | <img src="equations/digimax_gate_tone_mapped_reinhard.png" /> | <img src="equations/digimax_gate_tone_mapped_durand.png" />
+<img src="equations/scene.jpg" /> | <img src="equations/scene_tone_mapped_reinhard.png" /> | <img src="equations/scene_tone_mapped_durand.png" />
+<img src="equations/server.jpg" /> | <img src="equations/servers_tone_mapped_reinhard.png" /> | <img src="equations/servers_tone_mapped_durand.png" />
+<img src="equations/station.jpg" /> | <img src="equations/station_tone_mapped_reinhard.png" /> | <img src="equations/station_tone_mapped_durand.png" />
 
 ### Conclusion and future work
 ### Reference
