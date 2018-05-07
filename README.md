@@ -81,7 +81,12 @@ One natural question to ask is that how many pixels are needed to solve the equa
   <img src="equations/eq7.gif" />
 </p>
 
-However, not all pixels are equally good in terms of solving the linear equation system and randomly sampled pixels may not generate satisfactory result. For example, if the pixel value is either 0 or 255 across all the images, it does not provide any useful information in solving the function `g`. In order to pick "good" pixels, I sliced the images into many tiles, then for each tile, I picked the pixel that has highest standard deviation among images. This simple heuristic is indeed able to generate very good results. Since the imaging system may have different response function `g` for different color, the three channels of the image are treated separately and the results are shown in the table. The red curves in the response curve figures are function `g` for different color channels, the blue dots correspond to the sampled pixels, and the values in the radiance map figures are in log space.
+However, not all pixels are equally good in terms of solving the linear equation system and randomly sampled pixels may not generate satisfactory result. For example, if the pixel value is either 0 or 255 across all the images, it does not provide any useful information in solving the function `g`. In order to pick "good" pixels, I sliced the images into many tiles, then for each tile, I picked the pixel that has highest standard deviation among images. 
+<p align="center">
+  <img src="equations/stack.png" />
+</p>
+
+This simple heuristic is indeed able to generate very good results. Since the imaging system may have different response function `g` for different color, the three channels of the image are treated separately and the results are shown in the table. The red curves in the response curve figures are function `g` for different color channels, the blue dots correspond to the sampled pixels, and the values in the radiance map figures are in log space.
 
 R Channel                     |G Channel                        |B Channel
 :----------------------------:|:-------------------------------:|:------------------------------:
@@ -94,7 +99,8 @@ The problem of tone mapping considers how to map the high dynamic range radiance
 
 #### Reinhard's algorithm
 
-
+This algorithm is inspired by the Zone System that was developed in the 1940s. The main idea is to map the middle brightness of the scene to the middle brightness of the display medium, so that the overall brightness of the entire scene is well captured. The main 3 steps of the algorithm is illustrated below:
+1. Calculate the radiance value that corresponds to the average brightness of human perception of the scene. Since the brightness perception of human is logarithmic to scene radiance, we need to calculate the average of the logarithm of the scene radiance first and then map it back to radiance value. 
 
 #### Durand's algorithm
 ### Results
