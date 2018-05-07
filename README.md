@@ -30,7 +30,7 @@ Digital Video   | 45:1                                             |33.1
 Due to this huge discrepancy between the dynamic range of real world and the dynamic ranges of capturing and displaying devices, the details in both very dark and very bright regions of the scene are lost. For example, the details of the color of the windows and the structures in the left dark regions are not clear in the following image.
 
 <p align="center">
-  <img src="equations/memorial0065.png" width="200" height="320" />
+  <img src="equations/memorial0066.png" width="200" height="320" />
 </p>
 
 When such images are used as input of various image-related algorithms, the results may not be satisfactory due to the lack of details in the image. For example, many image-based modeling and rendering systems make the assumption that all the images are taken with the same exposure settings and film response functions, which is almost impossible for any large-scale environment. Moreover, most image processing operations, such as blurring, edge detection, color correction, and image correspondence, expect pixel values to be proportional to the scene radiance. These operations will produce incorrect results for conventional images due to saturated pixels. Furthermore, generating good-looking images gains increasingly more importance with the prevalence of smart phone. Thus, the goal of this project is to explore how to bring back the details in both dark and bright regions and then generate good-looking images.
@@ -105,12 +105,10 @@ This algorithm is inspired by the Zone System that was developed in the 1940s. T
 <p align="center">
   <img src="equations/eq11.gif" />
 </p>
-
 2. Scale the radiance values so that the average radiance value calculated from the first step is mapped to `a`, which is the middle brightness (e.g., middle-gray) of the display medium. `a` is usually set to 0.18 but can be adjusted to alter the overall brightness of the image. 
 <p align="center">
   <img src="equations/eq8.gif" />
 </p>
-
 3. After the second step, the very bright pixels may still been mapped to values that are larger than 1, which exceeds the luminance limits of the display medium (`0~1`). Since modern photography favors to compress mainly the high luminances, we need to apply a non-linear transformation to compress high luminances to values that are smaller than 1 and leave the low luminances almost intact. Such a non-linear transformation is shown below, where the ![](equations/eq10.gif) is set to the maximum luminance in the scene by default. 
 <p align="center">
   <img src="equations/eq9.gif" />
@@ -120,9 +118,12 @@ The results of this algorithm is shown below. Although not obvious, more details
 
 Original Image                             |Tone Mapped Image
 :-----------------------------------------:|:-----------------------------:
-<img src="equations/memorial0065.png" width="200" height="320" /> | <img src="equations/memorial_tone_mapped_reinhard.png" width="200" height="320" />
+<img src="equations/memorial0066.png" width="200" height="320" /> | <img src="equations/memorial_tone_mapped_reinhard.png" width="200" height="320" />
 
 #### Durand's algorithm
+
+
+
 ### Results
 ### Conclusion and future work
 ### Reference
