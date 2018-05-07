@@ -97,7 +97,7 @@ R Channel                     |G Channel                        |B Channel
 
 The problem of tone mapping considers how to map the high dynamic range radiance values in real world to low dynamic range display luminance values such that the details in both dard and bright regions become clearer. I implemented two algorithms from Reinhard and Durand. 
 
-#### Reinhard's algorithm
+#### Reinhard's algorithm[2]
 
 This algorithm is inspired by the Zone System that was developed in the 1940s. The main idea is to map the middle brightness of the scene to the middle brightness of the display medium, so that the overall brightness of the entire scene is well captured. The main 3 steps of the algorithm is illustrated below:
 
@@ -120,8 +120,14 @@ Original Image                             |Tone Mapped Image
 :-----------------------------------------:|:-----------------------------:
 <img src="equations/memorial0066.png" width="200" height="320" /> | <img src="equations/memorial_tone_mapped_reinhard.png" width="200" height="320" />
 
-#### Durand's algorithm
+#### Durand's algorithm[3]
 
+The main idea of this algorithm is to decompose the radiance image into two layers: a base layer, which encoding large-scale variations, and a detail layer. Only the base layer's contrast is reduced, thereby details are preserved in the tone mapped iamge. This algorithm can also be illustrated in 3 steps:
+
+1. The base layer is obtained by applying an edge-preserving filter, namely, bilateral filter on the logarithm of the radiance image. The reason of using the logarithm of the radiance image is explained in the first step of the Reinhard's algorithm. Bilateral filter is a non-linear filter, where the weight of each pixel is computed using a Gaussian in the spatial domain multiplied by an influence function in the intensity domain that decreases the weight of pixels with large intensity differences[3]. The result of applying this filter is that the image is blurred but the edges are preserved. Mathematically, this step can be expressed as:
+<p align="center">
+  <img src="equations/eq9.gif" />
+</p>
 
 
 ### Results
