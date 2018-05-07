@@ -135,7 +135,9 @@ Original Image      |Base Layer            |Detail Layer           |Tone Mapped 
 
 This section contains the results of both tone mapping algorithms on many images. The images are taken either by myself or from [Guan's website](https://github.com/drakeguan/vfx11spring_project1/tree/master/image/original).
 
-
+Original Image      |Reinhard's Algorithm       |Durand's Algorithm
+:------------------:|:-------------------------:|:---------------------:
+<img src="equations/corridor.jpg" /> | <img src="equations/corridor_tone_mapped_reinhard.png" /> | <img src="equations/corridor_tone_mapped_durand.png" />
 
 ### Conclusion and future work
 ### Reference
