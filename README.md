@@ -100,7 +100,13 @@ The problem of tone mapping considers how to map the high dynamic range radiance
 #### Reinhard's algorithm
 
 This algorithm is inspired by the Zone System that was developed in the 1940s. The main idea is to map the middle brightness of the scene to the middle brightness of the display medium, so that the overall brightness of the entire scene is well captured. The main 3 steps of the algorithm is illustrated below:
-1. Calculate the radiance value that corresponds to the average brightness of human perception of the scene. Since the brightness perception of human is logarithmic to scene radiance, we need to calculate the average of the logarithm of the scene radiance first and then map it back to radiance value. 
+
+1. Calculate the radiance value that corresponds to the average brightness of human perception of the scene. Since the brightness perception of human is logarithmic to scene radiance, we need to calculate the average of the logarithm of the scene radiance first and then map it back to radiance value. Suppose ![](equations/L.gif) is the radiance value of scene location `(x,y)` and the total number of pixels in the scene is `N`, then the average radiance is given by:
+<p align="center">
+  <img src="equations/eq11.gif" />
+</p>
+
+
 
 #### Durand's algorithm
 ### Results
