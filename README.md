@@ -133,7 +133,7 @@ Original Image      |Base Layer            |Detail Layer           |Tone Mapped 
 
 ### Results
 
-This section contains the results of both tone mapping algorithms on many images. The images are taken either by myself or from [Guan's website](https://github.com/drakeguan/vfx11spring_project1/tree/master/image/original). The regions in red circles in the original images have the most obvious improvement in terms of visible details.
+This section contains the results of both tone mapping algorithms on many images. The images are taken either by myself or from [Guan's website](https://github.com/drakeguan/vfx11spring_project1/tree/master/image/original). The regions with the most obvious improvement in terms of visible details are highlighted in the original images with red circles. In general, Durand's algorithm is able to reveal more details than Reinhard's algorithm, but it also suffers from the fact that the resulted images are not as natural as those from Reinhard'a algorithm.
 
 Original Image      |Reinhard's Algorithm       |Durand's Algorithm
 :------------------:|:-------------------------:|:---------------------:
@@ -147,8 +147,18 @@ Original Image      |Reinhard's Algorithm       |Durand's Algorithm
 <img src="equations/station.jpg" /> | <img src="equations/station_tone_mapped_reinhard.png" /> | <img src="equations/station_tone_mapped_durand.png" />
 
 ### Conclusion and future work
+
+1. Based on the results, it is clear that HDR radiance image reconstruction and tone mapping algorithms are indeed able to reduce image contrast and reveal more details in both under and over exposing regions. 
+2. The optimal tone mapping algorithm should be chosen based on the targeted application. For example, Reinhard's algorithm should be used if the end user is human, because it is able to reveal just enough details to make the images looks good and, at the same time, the images remains very natural to human eyes. On the other hand, image processing algorithms may benefit more from Durand's algorithm because much more details become visible.
+3. One thing I noticed when I took my own set of photos is that it is very hard to take many photos with different exposure durations while keeping the scene static. This become almost impossible when moving objects are presented in the scene. So, in future work, I would like to investigate a way to automatically determine the exposure durations to minimize the number of images needed in reconstructing the scene radiance.
+4. Another thing I would like to work on is improving Durand’s algorithm to make the resulted images looks more natural.
+
 ### Reference
 
+1. Debevec, Paul E., and Jitendra Malik. "Recovering high dynamic range radiance maps from photographs." Proceedings of the 24th annual conference on Computer graphics and interactive techniques. ACM Press/Addison-Wesley Publishing Co., 1997.
+2. Reinhard, Erik, et al. "Photographic tone reproduction for digital images." ACM transactions on graphics (TOG) 21.3 (2002): 267-276.
+3. Durand, Frédo, and Julie Dorsey. "Fast bilateral filtering for the display of high-dynamic-range images." ACM transactions on graphics (TOG). Vol. 21. No. 3. ACM, 2002.
+4. [Some implementation details](http://pages.cs.wisc.edu/~csverma/CS766_09/HDRI/hdr.html)
 
 
 
