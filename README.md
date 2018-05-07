@@ -138,7 +138,7 @@ This section contains the results of both tone mapping algorithms on many images
 Original Image      |Reinhard's Algorithm       |Durand's Algorithm
 :------------------:|:-------------------------:|:---------------------:
 <img src="equations/corridor.jpg" /> | <img src="equations/corridor_tone_mapped_reinhard.png" /> | <img src="equations/corridor_tone_mapped_durand.png" />
-
+<img src="equations/desk.jpg" /> | <img src="equations/desk_tone_mapped_reinhard.png" /> | <img src="equations/desk_tone_mapped_durand.png" />
 
 ### Conclusion and future work
 ### Reference
