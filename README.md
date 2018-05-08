@@ -150,7 +150,7 @@ Original Image      |Reinhard's Algorithm       |Durand's Algorithm
 
 1. Based on the results, it is clear that HDR radiance image reconstruction and tone mapping algorithms are indeed able to reduce image contrast and reveal more details in both under and over exposing regions. 
 2. The optimal tone mapping algorithm should be chosen based on the targeted application. For example, Reinhard's algorithm should be used if the end user is human, because it is able to reveal just enough details to make the images looks good and, at the same time, the images remains very natural to human eyes. On the other hand, image processing algorithms may benefit more from Durand's algorithm because much more details become visible.
-3. One thing I noticed when I took my own set of photos is that it is very hard to take many photos with different exposure durations while keeping the scene static. This become almost impossible when moving objects are presented in the scene. So, in future work, I would like to investigate a way to automatically determine the exposure durations to minimize the number of images needed in reconstructing the scene radiance.
+3. One thing I noticed when I took my own set of photos is that it is very hard to take many photos with different exposure durations while keeping both the scene and camera static. This become almost impossible when moving objects are presented in the scene. So, in future work, I would like to investigate a way to automatically determine the exposure durations to minimize the number of images needed in reconstructing the scene radiance.
 4. Another thing I would like to work on is improving Durand’s algorithm to make the resulted images looks more natural.
 
 ### Reference
