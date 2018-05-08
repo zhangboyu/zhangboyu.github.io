@@ -11,7 +11,7 @@
 
 
 ### Problem statement and motivation
-The range of intensity of light in real world is approximately **10** orders of magnitudes (e.g., star-lit scene vs. sun-lit snow) and it can be over **4** orders of magnitudes in one scene (e.g., shadows vs. highlights). However, the range of intensity of light that can be captured by normal cameras and can be displayed by normal monitors is only about **2** orders of magnitudes. The ability of capturing and displaying both very dark and very bright at the same time is characterized by the **dynamic range** of the device. The dynamic range is defined by the following equation:
+The range of intensity of light in real world is approximately **10** orders of magnitudes (e.g., star-lit scene vs. sun-lit snow) and it can be over **4** orders of magnitudes in one single scene (e.g., shadows vs. highlights). However, the range of intensity of light that can be captured by normal cameras and can be displayed by normal monitors is only about **2** orders of magnitudes. The ability of capturing and displaying both very dark and very bright at the same time is characterized by the **dynamic range** of the device. The dynamic range is defined by the following equation:
 
 <p align="center">
   <img src="equations/dynamic_range.gif" />
@@ -27,25 +27,25 @@ Digital Camera  | 4096:1                                           |72.2
 Film Camera     | 2948:1                                           |66.2
 Digital Video   | 45:1                                             |33.1
 
-Due to this huge discrepancy between the dynamic range of real world and the dynamic ranges of capturing and displaying devices, the details in both very dark and very bright regions of the scene are lost. For example, the details of the color of the windows and the structures in the left dark regions are not clear in the following image.
+Due to the huge discrepancy between the dynamic range of real world light and the dynamic ranges of capturing and displaying devices, the details in both very dark and very bright regions of the scene are lost in captured images. For example, the details of the color of the windows and the structures in the left dark regions are not clear in the following image.
 
 <p align="center">
   <img src="equations/memorial0066.png" width="200" height="320" />
 </p>
 
-When such images are used as input of various image-related algorithms, the results may not be satisfactory due to the lack of details in the image. For example, many image-based modeling and rendering systems make the assumption that all the images are taken with the same exposure settings and film response functions, which is almost impossible for any large-scale environment. Moreover, most image processing operations, such as blurring, edge detection, color correction, and image correspondence, expect pixel values to be proportional to the scene radiance. These operations will produce incorrect results for conventional images due to saturated pixels. Furthermore, generating good-looking images gains increasingly more importance with the prevalence of smart phone. Thus, the goal of this project is to explore how to bring back the details in both dark and bright regions and then generate good-looking images.
+When such images are used as input of various image-related algorithms, the results may not be satisfactory due to the lack of details in the image. For example, many image-based modeling and rendering systems make the assumption that all the images are taken with the same exposure settings and film response functions, which is almost impossible for any large-scale environment. Moreover, most image processing operations, such as blurring, edge detection, color correction, and image correspondence, expect pixel values to be proportional to the scene radiance. These operations will produce incorrect results for conventional images due to saturated pixels. Furthermore, generating good-looking images gains increasingly more importance with the prevalence of smart phone. Thus, the goal of this project is to explore how to bring back the details in both dark and bright regions as well as generate good-looking images.
 
 ### High-level summary of the procedure
 
-At high level, the procedure of generating good-looking images with clear details consists of two stages. 
+At high level, the procedure of generating good-looking images with clear details consists of two stages:
 1. In the first stage, we want to estimate the radiance value of each scene point so that we know the real light intensity of every scene point. 
-2. In the second stage, we want to map the radiance image obtained from the first stage to display luminance values so that the details in dark and bright regions can be shown clearly with the display medium. 
+2. In the second stage, we want to map the radiance image obtained from the first stage to luminance values of display medium so that the details in dark and bright regions can be shown clearly. 
 
 ### HDR radiance image reconstruction (Debevec's algorithm)
 
 The goal of this stage is to estimate the radiance value at every scene point from a set of images that are taken from the same vatange point with different known exposure duration. Here, I used Debevec's algorithm\[1\] to achieve this purpose. 
 
-Assuming we have a set of images taken from the same vantage point with the same aperture but different exposure duration. The radiance value of each scene point is ![](equations/ei.gif), where `i` is spatial index. The exposure duration is ![](equations/deltat.gif), where `j` is time index. The pixel value corresponding to spatial index `i` and time index `j` is ![](equations/zij.gif). As shown in the figure below, for any imaging system, photons pass through the shutter and accumulated at image sensor, then the raw data from the sensor passes through the camera response function to get the final pixel value. The camera response function `f` is a non-linear function that is different for each camera and proprietary to each manufactory. Thus, the pixel value ![](equations/zij.gif) can be expressed as a non-linear function `f` applied to the product of ![](equations/ei.gif) and ![](equations/deltat.gif), which is also shown below.
+Assuming we have a set of images taken from the same vantage point with the same aperture but different exposure duration. The radiance value of each scene point is ![](equations/ei.gif), where `i` is spatial index. The exposure duration is ![](equations/deltat.gif), where `j` is time index. The pixel value corresponding to spatial index `i` and time index `j` is ![](equations/zij.gif). As shown in the figure below, for any imaging system, photons pass through the shutter and accumulated at image sensor, then the raw data from the sensor processed by the camera response function to get the final pixel value. Thus, the pixel value ![](equations/zij.gif) can be expressed as a non-linear function `f` applied to the product of ![](equations/ei.gif) and ![](equations/deltat.gif), which is also shown below. The camera response function `f` is a non-linear function that is different for each camera and proprietary to each manufactory.
 
 <p align="center">
   <img src="equations/wholeprocess.png" width="180" height="215" />
@@ -76,17 +76,17 @@ Where `N` is the number of pixels used in the linear equation system and `P` is 
   <img src="equations/eq6.gif" />
 </p>
 
-One natural question to ask is that how many pixels are needed to solve the equation system. Notice that in the above system, the unknowns are the value of function `g` on all possible `Z` values and the radiance values `E` of the scene points that corresponds to the picked pixels. Thus, as long as the following equation is met, the solution can be found. For example, when `P=11`, `N>50` is more than enough.
+One natural question to ask is that how many pixels are needed to solve the equation system. To answer this question, notice that in the above system, the unknowns are the value of function `g` on all possible `Z` values and the radiance values `E` of the scene points that correspond to the picked pixels. Thus, as long as the following equation is met, the solution can be found. For example, when `P=11`, `N>50` is more than enough. At the same time, using too many pixels for solving the equation system is not favorable because of the very long runtime. So, we want to use more than enough not too many pixels to achieve a balance between solution quality and runtime.  
 <p align="center">
   <img src="equations/eq7.gif" />
 </p>
 
-However, not all pixels are equally good in terms of solving the linear equation system and randomly sampled pixels may not generate satisfactory result. For example, if the pixel value is either 0 or 255 across all the images, it does not provide any useful information in solving the function `g`. In order to pick "good" pixels, I sliced the images into many tiles, then for each tile, I picked the pixel that has highest standard deviation among images. 
+However, not all pixels are equally good in terms of solving the linear equation system and randomly sampled pixels may not generate satisfactory result. For example, if the pixel value is either 0 or 255 across all the images, it does not provide any useful information in solving the function `g`. In order to pick "good" pixels, I sliced the images into many tiles, then for each tile, I picked the pixel that has the highest standard deviation among images. 
 <p align="center">
   <img src="equations/stack.png" width="200" height="320" />
 </p>
 
-This simple heuristic is indeed able to generate very good results. Since the imaging system may have different response function `g` for different color, the three channels of the image are treated separately and the results are shown in the table. The red curves in the response curve figures are function `g` for different color channels, the blue dots correspond to the sampled pixels, and the values in the radiance map figures are in log space.
+This simple heuristic is indeed able to generate very good results. Since the imaging system may have different response function `g` for different color, the three channels of the images are treated separately and the results are shown in the table. The red curves in the response curve figures are function `g` for different color channels, the blue dots correspond to the sampled pixels, and the values in the radiance map figures are in log space.
 
 R Channel                     |G Channel                        |B Channel
 :----------------------------:|:-------------------------------:|:------------------------------:
@@ -95,17 +95,17 @@ R Channel                     |G Channel                        |B Channel
 
 ### Tone Mapping algorithms
 
-The problem of tone mapping considers how to map the high dynamic range radiance values in real world to low dynamic range display luminance values such that the details in both dard and bright regions become clearer. I implemented two algorithms from Reinhard and Durand. 
+The problem of tone mapping considers how to map the high dynamic range radiance values in real world to low dynamic range display luminance values such that the details in both dard and bright regions are also visible. I implemented two algorithms from Reinhard and Durand. 
 
 #### Reinhard's algorithm[2]
 
-This algorithm is inspired by the Zone System that was developed in the 1940s. The main idea is to map the middle brightness of the scene to the middle brightness of the display medium, so that the overall brightness of the entire scene is well captured. The main 3 steps of the algorithm is illustrated below:
+This algorithm is inspired by the Zone System that was developed in the 1940s and widely used by photographers. The main idea of the Zone System is to map the middle brightness of the scene to the middle brightness of the display medium, so that the overall brightness of the entire scene is well captured. The main 3 steps of the algorithm is illustrated below:
 
 1. Calculate the radiance value that corresponds to the average brightness of human perception of the scene. Since the brightness perception of human is logarithmic to scene radiance, we need to calculate the average of the logarithm of the scene radiance first and then map it back to radiance value. Suppose ![](equations/L.gif) is the radiance value of scene location `(x,y)` and the total number of pixels in the scene is `N`, then the average radiance is given by:
    <p align="center">  <img src="equations/eq11.gif" /> </p>
 2. Scale the radiance values so that the average radiance value calculated from the first step is mapped to `a`, which is the middle brightness (e.g., middle-gray) of the display medium. `a` is usually set to 0.18 but can be adjusted to alter the overall brightness of the image. 
    <p align="center">  <img src="equations/eq8.gif" /> </p>
-3. After the second step, the very bright pixels may still been mapped to values that are larger than 1, which exceeds the luminance limits of the display medium (`0~1`). Since modern photography favors to compress mainly the high luminances, we need to apply a non-linear transformation to compress high luminances to values that are smaller than 1 and leave the low luminances almost intact. Such a non-linear transformation is shown below, where the ![](equations/eq10.gif) is set to the maximum luminance in the scene by default. 
+3. After the second step, the very bright pixels may still been mapped to values that are larger than 1, which is the upper luminance limit of the display medium. Since modern photography favors to compress mainly the high luminances, we need to apply a non-linear transformation to compress high luminances to values that are smaller than 1 and leave the low luminances almost intact. One possible non-linear transformation is shown below, where the ![](equations/eq10.gif) is set to the maximum luminance in the scene by default. 
    <p align="center">  <img src="equations/eq9.gif" /> </p>
 
 The results of this algorithm is shown below. Although not obvious, more details are indeed show up in the new image if we zoom in.
@@ -122,10 +122,10 @@ The main idea of this algorithm is to decompose the radiance image into two laye
    <p align="center">  <img src="equations/eq12.gif" /> </p>
 2. The detail layer is extracted by subtracting the base layer from the logarithm of the radiance image. 
    <p align="center">  <img src="equations/eq13.gif" /> </p>
-3. Base layer get shifted and contrast reduced first. Then the detail layer is added back to it. Finally, we take its exponential to be the fianl luminance value. The purpose of shift is to make sure that the component from the base layer after exponential is less than upper limit of the luminance value, which is 1.
+3. Base layer get shifted and contrast reduced first. Then the detail layer is added back to it. Finally, we take its exponential to be the fianl luminance value. The purpose of shift is to make sure that the component from the base layer after the exponential is less than the upper limit of the luminance value, which is 1.
    <p align="center">  <img src="equations/eq14.gif" /> </p>
 
-The results of various step of this algorithm are shown below. The effects of this algorithm is very obvious. However, the color of the tone mapped image seems little unnatural. 
+The results of each step of this algorithm are shown below. The effects of this algorithm is very obvious. However, the color of the tone mapped image seems little unnatural. 
 
 Original Image      |Base Layer            |Detail Layer           |Tone Mapped Image
 :------------------:|:--------------------:|:---------------------:|:-------:
@@ -133,7 +133,7 @@ Original Image      |Base Layer            |Detail Layer           |Tone Mapped 
 
 ### Results
 
-This section contains the results of both tone mapping algorithms on many images. The images are taken either by myself or from [Guan's website](https://github.com/drakeguan/vfx11spring_project1/tree/master/image/original). The regions with the most obvious improvement in terms of visible details are highlighted in the original images with red circles. In general, Durand's algorithm is able to reveal more details than Reinhard's algorithm, but it also suffers from the fact that the resulted images are not as natural as those from Reinhard'a algorithm.
+This section contains the results of both tone mapping algorithms on many images. The original images are taken either by myself or from [Guan's website](https://github.com/drakeguan/vfx11spring_project1/tree/master/image/original). The regions with the most obvious improvement in terms of visible details are highlighted in the original images with red circles. In general, Durand's algorithm is able to reveal more details than Reinhard's algorithm, but it also suffers from the fact that the resulted images are not as natural as those from Reinhard'a algorithm.
 
 Original Image      |Reinhard's Algorithm       |Durand's Algorithm
 :------------------:|:-------------------------:|:---------------------:
@@ -150,7 +150,7 @@ Original Image      |Reinhard's Algorithm       |Durand's Algorithm
 
 1. Based on the results, it is clear that HDR radiance image reconstruction and tone mapping algorithms are indeed able to reduce image contrast and reveal more details in both under and over exposing regions. 
 2. The optimal tone mapping algorithm should be chosen based on the targeted application. For example, Reinhard's algorithm should be used if the end user is human, because it is able to reveal just enough details to make the images looks good and, at the same time, the images remains very natural to human eyes. On the other hand, image processing algorithms may benefit more from Durand's algorithm because much more details become visible.
-3. One thing I noticed when I took my own set of photos is that it is very hard to take many photos with different exposure durations while keeping both the scene and camera static. This become almost impossible when moving objects are presented in the scene. So, in future work, I would like to investigate a way to automatically determine the exposure durations to minimize the number of images needed in reconstructing the scene radiance.
+3. One thing I noticed when I took my own set of photos is that it is very hard to take many photos with different exposure durations while keeping both the scene and camera static. This becomes almost impossible when moving objects are presented in the scene. So, in future work, I would like to investigate a way to automatically determine the exposure durations to minimize the number of images needed in reconstructing the scene radiance.
 4. Another thing I would like to work on is improving Durand’s algorithm to make the resulted images looks more natural.
 
 ### Reference
